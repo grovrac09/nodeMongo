@@ -19,17 +19,19 @@ exports.updateMusic = async (collection, dataObj) => {
     try {
         const updateSong = collection.find({song: {$gt: "Freak On A Leash"}});
         await collection.updateOne(dataObj);
+        console.log(updateSong);
     } catch (error) {
         console.log(error)
     }
 };
 
 
-exports.deleteMusic = async (collection, dataObj) => {
-    try {
-        const removeGenre = collection.find(genre);
-        await collection.deleteOne(dataObj);
-    } catch (error) {
-        console.log(error);
-    }
-};
+// exports.deleteMusic = async (collection, dataObj) => {
+//     try {
+//         const removeGenre = collection.find({genre: {$gt: "rock"}});
+//         await collection.deleteOne(dataObj);
+//         console.log(removeGenre);
+//     } catch (error) {
+//         console.log(error);
+//     }
+// };
