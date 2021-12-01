@@ -14,3 +14,22 @@ exports.listMusic = async (collection) => {
         console.log(error);
     }
 };
+
+exports.updateMusic = async (collection, dataObj) => {
+    try {
+        const updateSong = collection.find({song: {$gt: "Freak On A Leash"}});
+        await collection.updateOne(dataObj);
+    } catch (error) {
+        console.log(error)
+    }
+};
+
+
+exports.deleteMusic = async (collection, dataObj) => {
+    try {
+        const removeGenre = collection.find(genre);
+        await collection.deleteOne(dataObj);
+    } catch (error) {
+        console.log(error);
+    }
+};
