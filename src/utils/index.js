@@ -15,23 +15,22 @@ exports.listMusic = async (collection) => {
     }
 };
 
-exports.updateMusic = async (collection, dataObj) => {
-    try {
-        const updateSong = collection.find({song: {$gt: "Freak On A Leash"}});
-        await collection.updateOne(dataObj);
-        console.log(updateSong);
-    } catch (error) {
-        console.log(error)
-    }
-};
-
-
-// exports.deleteMusic = async (collection, dataObj) => {
+// exports.updateMusic = async (collection, dataObj) => {
 //     try {
-//         const removeGenre = collection.find({genre: {$gt: "rock"}});
-//         await collection.deleteOne(dataObj);
-//         console.log(removeGenre);
+//         const updateSong = collection.find({song: {$gt: "Freak On A Leash"}});
+//         await collection.updateOne(dataObj);
+//         console.log(updateSong);
 //     } catch (error) {
-//         console.log(error);
+//         console.log(error)
 //     }
 // };
+
+
+exports.deleteMusic = async (collection, dataObj) => {
+    console.log(dataObj);
+    try {
+        await collection.deleteMany({genre: dataObj.genre});
+    } catch (error) {
+        console.log(error);
+    }
+};

@@ -1,5 +1,5 @@
 const connection = require("./database/connection");
-const {addMusic, listMusic, updateMusic} = require("./utils");
+const {addMusic, listMusic, deleteMusic} = require("./utils");
 
 const command = process.argv[2]; 
 
@@ -13,9 +13,10 @@ const app = async () => {
     await connection(addMusic, newMusic);
     } else if (command === "list") {
         await connection(listMusic);
-    } else if (command === "update"){
-        await connection(updateMusic);
-    } else {
+    } else if (command === "delete") {
+        await connection(deleteMusic, {genre: process.argv[3]});
+    }
+    else {
         console.log("invalid command")
     }
 };
